@@ -1,0 +1,320 @@
+/********************************
+ * 电脑壁纸网站
+ * 孟坤网页实验室（http://lab.mkblog.cn）出品
+ * ver 1.1
+ * !!盗版必究!!
+ ********************************/
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Microsoft Yahei, "微软雅黑", "Helvetica Neue", Helvetica, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+}
+li {
+    list-style-type:none;
+}
+/* 滚动条美化 */
+::-webkit-scrollbar-track-piece {
+    background-color:transparent;
+}
+::-webkit-scrollbar {
+    width:9px;
+    height:8px;
+}
+::-webkit-scrollbar-thumb {
+    background-color:rgb(192, 199, 210);
+    -webkit-border-radius:7px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color:#9f9f9f;
+}
+::-webkit-scrollbar-arrow {
+    color:#F00;
+    backgound:#0F0;
+}
+body {
+    overflow-y: scroll;
+    height: 100%;
+    background-color: #eee;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+/* 页面导航栏 */
+.banner {
+    position: fixed;
+    z-index: 99999;
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    font-size: 16px;
+    background-color: #fff;
+    opacity: 0.77;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=77);
+    filter: alpha(opacity=77);
+    transition: all 0.25s ease;
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+}
+.banner:hover {
+    opacity: 0.99;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=99);
+    filter: alpha(opacity=99);
+}
+/* 网站标题 */
+.banner .webTitle {
+    font-size: 28px;
+    font-weight: normal;
+    display: inline-block;
+    padding: 0 10px;
+    color: #56AB78;;
+    cursor: pointer;
+}
+/* 只有chrome才能这么用…… */
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+    .banner .webTitle {
+        background-image:-webkit-gradient(linear, left top, right bottom, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2), color-stop(0.85, #ff2), color-stop(1, #f22));
+        color: transparent;
+        -webkit-background-clip: text;
+    }
+}
+#banner {
+    float: right;
+}
+#banner a{
+    text-decoration: none;
+    color: #000;
+}
+#banner li {
+    height: 100%;
+    display: inline-block;
+    padding: 0 10px;
+    cursor: pointer;
+    font-size: 15px;
+    list-style-type:none;
+}
+#banner li:hover,#banner li:hover a{
+    color: #666;
+}
+/* 壁纸分类 */
+.tags:hover #tags {
+    display: block;
+}
+#tags {
+    z-index: 9999;
+    display: none;
+    position: absolute;
+    width: 210px;
+    line-height: 35px;
+    background-color: #fff;
+    border-top: 2px solid #9EAFFF;
+    font-size: 14px;
+}
+#tags li {
+    width: 90px;
+    float: left;
+    padding: 0 0 0 15px;
+    color: #000;
+}
+#tags li:hover {
+    background-color: #eee;
+}
+
+/* 页面主体部分 */
+.container {
+    padding-top: 50px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+body[class *=viewing-page] .container {
+    padding-top: 0px;
+}
+
+#walBox {
+    height: 100%;
+}
+/* 拼图框架 */
+.jigsaw .item {
+    float: left;
+    position: relative;
+}
+.jigsaw img {
+    width: 100%;
+    height: 100%;
+}
+/* 四分之一宽度 */
+.jigsaw .quater {
+    width: 25%;
+    display: inline-block;
+    background: #999;
+}
+/* 一半宽度 */
+.jigsaw .half {
+    width: 50%;
+    display: inline-block;
+    background: #EEE;
+}
+/* 每个小图片框 */
+.oneImg {
+    position: relative;
+    /*z-index: 2;*/
+    overflow: hidden;
+    transition: all 0.25s ease;
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+}
+.oneImg:hover {
+    z-index: 22;
+    -moz-box-shadow: 0px 0px 20px #000000;
+    -webkit-box-shadow: 0px 0px 20px #000000;
+    box-shadow: 0px 0px 20px #000000;
+}
+.oneImg:hover .down {
+    left: 0;
+    display: inline-block;
+}
+
+
+
+
+/* 加载更多 */
+#loadmore {
+    text-align: center;
+    line-height: 40px;
+    display: none;
+    color: #666;
+}
+/* 必应翻页 */
+#walBox .section {
+    -moz-background-size: cover;
+    /*背景图片拉伸以铺满全屏*/
+    -ms-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    color: #fff;
+    position: relative;
+}
+#walBox .note {
+    font-size: 14px;
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    text-shadow:0 0 5px #000000;
+    color: #fff;
+}
+/* 右侧翻页小点 */
+.onepage-pagination {
+    top: 100px!important;
+}
+
+/* 右侧小球 */
+#toolBall {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 999;
+    width: 50px;
+    height: 50px;
+    border-radius: 50PX;
+    background-position: center;
+    background-size: 20px 20px;
+    opacity: 0.77;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=77);
+    filter: alpha(opacity=77);
+    transition: all 0.25s ease;
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+}
+#toolBall:hover {
+    opacity: 0.98;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=98);
+    filter: alpha(opacity=98);
+}
+/* 下载必应图片时显示下载图标 */
+.downBing {
+    background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAIVBMVEUAAADe3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t4RmXU5AAAACnRSTlMAsKAQW6Z5c2lOCqK00wAAAEJJREFUCNdjwAaYVq1SIMAwNl21KtgYyMhaBQTLgAx2EKMAJNe1atUKsGKWVascICZ6LYEazTkB1SpBMAAyVoEBAwBXFRj52xzkuAAAAABJRU5ErkJggg==) no-repeat;
+}
+/* 返回顶部时显示返回顶部图标 */
+.uptoTop {
+    background: #666 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAADAFBMVEX///8TkhEmliImpSQzMzM5uTFCxEBOwEtU1lJl1ENm1ERn1UVn1UZo1Udq1Ulr1kps1kxu105x11J12VZ32Vl52lt+22GA22OF3WqK3nCM33ON33SR4HiZmZmZy5qZ44Od0aCd5Iifn5+g0p+mpqam5pKn55Sq26isrKys6Jmx6Z+zs7O5ubm8vLy+vr6+7bC/v7/AwMDBwcHCwsLDw8PExMTFxcXGxsbHx8fH77rIyMjJycnKysrK8L7Ly8vL8MDMzMzNzc3N8cPOzs7Pz9DP8sTQ0NDQ0NHS0tLU1NTU1NXW1tbZ2dna2tvb29vd3d3f39/g4ODg4OHg9tnh4eHh6dzi4uPj4+Tj993k5OTl5eXm5ubm5ufm5+Tn5+fo5+To6OLo6Ojp6enp7ubp7vDp+eTq6uXq6urr6+vr7/Ls7Ons7Ozt7e3u7u7u8e3v6+jv7+/w7+vw8PDx8fHy8vLy9Pby++/z8/Dz8/Pz9fL09PT09fb09vP0/PL19fX19vj29vb39fb39/f49PP4+Pj4/ff5+ff5+fn5+/n6+Pv6+vj6+vr6+vz6/fj6/vn7+/v7/Pz7/vv8/Pz8/fn9/f39/v3+hDP+k0z+oWP+rnn+uo3+wkn+wkr+w03+xlb+x1n+yFz+zGf+zWv+z3H+0HL+1H7+2In+25T+3p3+/f7+/v7+//7/ZgD/cBD/eSD/gzD/jED/llD/oGD/qXD/sn//vI//xZ//z6//z7D/2L//4Mz/4aT/4s//46z/59j/6b3/6sL/7N//7uL/787/8NH/8tj/8+v/9e//9+f/9/L/+ev/+/j//Pb//fz//vv//vz///////7S0tLT09PU1NTV1dXW1tbX19fY2NjZ2dna2trb29vc3Nzd3d3e3t7f39/g4ODh4eHi4uLj4+Pk5OTl5eXm5ubn5+fo6Ojp6enq6urr6+vs7Ozt7e3u7u7v7+/w8PDx8fHy8vLz8/P09PT19fX29vb39/f4+Pj5+fn6+vr7+/v8/Pz9/f3+/v7///+DxIdfAAAAAXRSTlMAQObYZgAAADlJREFUKM9jYBjs4OJFXOLYZS5exC5z8SJ2GYgYpgxMBF0GwUeVQebhYuPWDedfxO6Siwy43T4YAQD2mUY34y3BtwAAAABJRU5ErkJggg==) no-repeat;
+}
+
+/* 下载框 */
+.down {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: #000;
+    background: rgba(0, 0, 0, .7);
+    filter: alpha(opacity=70);
+    font-size: 13px;
+    padding: 10px;
+    line-height: 22px;
+    left: -130px;
+    transition: all 0.25s ease;
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+    overflow-y: auto;
+}
+.down li {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAIVBMVEUAAADe3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t7e3t4RmXU5AAAACnRSTlMAsKAQW6Z5c2lOCqK00wAAAEJJREFUCNdjwAaYVq1SIMAwNl21KtgYyMhaBQTLgAx2EKMAJNe1atUKsGKWVascICZ6LYEazTkB1SpBMAAyVoEBAwBXFRj52xzkuAAAAABJRU5ErkJggg==) no-repeat;
+    background-position: 0 2px;
+    padding-left: 20px;
+}
+.down a {
+    color: #fff;
+    text-decoration: none;
+}
+.down a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* 每日英语英语原文 */
+.ciba-eng{
+    cursor: pointer;
+}
+.ciba-eng:hover{
+    text-decoration: underline;
+}
+/* 每日英语点赞 */
+.ciba-love{
+    moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.blur{
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+}
+
+/* 全屏展示的图片 */
+#full-img {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 9999999;
+}
