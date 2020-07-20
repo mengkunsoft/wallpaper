@@ -7,26 +7,26 @@
     <title>电脑壁纸</title>
 
     <meta name="keywords" content="电脑桌面壁纸,高清电脑桌面壁纸,电脑桌面壁纸下载,电脑高清桌面壁纸" />
-    <meta name="description" content="孟坤在线壁纸提供高清电脑壁纸下载,包括美女,游戏,动漫,动物,汽车,体育,广告,影视,明星,风景,绘画,节日,花卉等经典壁纸"/>
+    <meta name="description" content="孟坤在线壁纸提供高清电脑壁纸下载,包括美女,游戏,动漫,动物,汽车,体育,广告,影视,明星,风景,绘画,节日,花卉等经典壁纸" />
 
     <!-- jQuery文件 -->
-    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
 
     <!--滚动加载插件-->
-    <script type="text/javascript" src="js/jquery.lazyload.min.js"></script>
+    <script src="js/jquery.lazyload.min.js"></script>
 
     <!--全屏滚动插件-->
-    <script type="text/javascript" src="js/jquery.onepage-scroll.min.js"></script>
+    <script src="js/jquery.onepage-scroll.min.js"></script>
 
     <!--页面核心js文件-->
-    <script type="text/javascript" src="js/wallpaper.js"></script>
+    <script src="js/wallpaper.js"></script>
     
     <link rel="stylesheet" href="css/wallpaper.css">
 </head>
 <body>
 
 <div class="banner">
-    <h1 class="webTitle" title="Copyright &copy; 孟坤网页实验室">电脑壁纸</h1>
+    <h1 class="webTitle" title="Copyright &copy; mengkun's lab">电脑壁纸</h1>
     <ul id="banner">
         <li onclick="loadData('360new', true);changeTitle(this)">最新壁纸</li>
         <li class="tags">

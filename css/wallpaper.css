@@ -10,35 +10,36 @@
     font-family: Microsoft Yahei, "微软雅黑", "Helvetica Neue", Helvetica, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
 }
 li {
-    list-style-type:none;
+    list-style-type: none;
 }
 /* 滚动条美化 */
 ::-webkit-scrollbar-track-piece {
-    background-color:transparent;
+    background-color: transparent;
 }
 ::-webkit-scrollbar {
-    width:9px;
-    height:8px;
+    width: 9px;
+    height: 8px;
 }
 ::-webkit-scrollbar-thumb {
-    background-color:rgb(192, 199, 210);
-    -webkit-border-radius:7px;
+    background-color: rgb(192, 199, 210);
+    border-radius: 7px;
 }
 ::-webkit-scrollbar-thumb:hover {
     background-color:#9f9f9f;
 }
 ::-webkit-scrollbar-arrow {
-    color:#F00;
-    backgound:#0F0;
+    color: #F00;
+    background: #0F0;
 }
+
 body {
     overflow-y: scroll;
     height: 100%;
     background-color: #eee;
-    -moz-background-size: cover;
-    -ms-background-size: cover;
     -webkit-background-size: cover;
-    background-size: cover;
+       -moz-background-size: cover;
+        -ms-background-size: cover;
+            background-size: cover;
 }
 
 /* 页面导航栏 */
@@ -52,18 +53,20 @@ body {
     background-color: #fff;
     opacity: 0.77;
     -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=77);
-    filter: alpha(opacity=77);
-    transition: all 0.25s ease;
+        filter: alpha(opacity=77);
     -webkit-transition: all 0.25s ease;
-    -moz-transition: all 0.25s ease;
-    -o-transition: all 0.25s ease;
-    -ms-transition: all 0.25s ease;
+       -moz-transition: all 0.25s ease;
+        -ms-transition: all 0.25s ease;
+         -o-transition: all 0.25s ease;
+            transition: all 0.25s ease;
 }
+
 .banner:hover {
     opacity: 0.99;
     -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=99);
-    filter: alpha(opacity=99);
+        filter: alpha(opacity=99);
 }
+
 /* 网站标题 */
 .banner .webTitle {
     font-size: 28px;
@@ -73,6 +76,7 @@ body {
     color: #56AB78;;
     cursor: pointer;
 }
+
 /* 只有chrome才能这么用…… */
 @media screen and (-webkit-min-device-pixel-ratio:0) { 
     .banner .webTitle {
@@ -81,13 +85,16 @@ body {
         -webkit-background-clip: text;
     }
 }
+
 #banner {
     float: right;
 }
+
 #banner a{
     text-decoration: none;
     color: #000;
 }
+
 #banner li {
     height: 100%;
     display: inline-block;
@@ -96,13 +103,16 @@ body {
     font-size: 15px;
     list-style-type:none;
 }
+
 #banner li:hover,#banner li:hover a{
     color: #666;
 }
+
 /* 壁纸分类 */
 .tags:hover #tags {
     display: block;
 }
+
 #tags {
     z-index: 9999;
     display: none;
@@ -113,12 +123,14 @@ body {
     border-top: 2px solid #9EAFFF;
     font-size: 14px;
 }
+
 #tags li {
     width: 90px;
     float: left;
     padding: 0 0 0 15px;
     color: #000;
 }
+
 #tags li:hover {
     background-color: #eee;
 }
@@ -130,51 +142,57 @@ body {
     width: 100%;
     height: 100%;
 }
+
 body[class *=viewing-page] .container {
-    padding-top: 0px;
+    padding-top: 0;
 }
 
 #walBox {
     height: 100%;
 }
+
 /* 拼图框架 */
 .jigsaw .item {
     float: left;
     position: relative;
 }
+
 .jigsaw img {
     width: 100%;
     height: 100%;
 }
+
 /* 四分之一宽度 */
 .jigsaw .quater {
     width: 25%;
     display: inline-block;
     background: #999;
 }
+
 /* 一半宽度 */
 .jigsaw .half {
     width: 50%;
     display: inline-block;
     background: #EEE;
 }
+
 /* 每个小图片框 */
 .oneImg {
     position: relative;
     /*z-index: 2;*/
     overflow: hidden;
-    transition: all 0.25s ease;
     -webkit-transition: all 0.25s ease;
-    -moz-transition: all 0.25s ease;
-    -o-transition: all 0.25s ease;
-    -ms-transition: all 0.25s ease;
+       -moz-transition: all 0.25s ease;
+         -o-transition: all 0.25s ease;
+        -ms-transition: all 0.25s ease;
+            transition: all 0.25s ease;
 }
+
 .oneImg:hover {
     z-index: 22;
-    -moz-box-shadow: 0px 0px 20px #000000;
-    -webkit-box-shadow: 0px 0px 20px #000000;
-    box-shadow: 0px 0px 20px #000000;
+    box-shadow: 0 0 20px #000;
 }
+
 .oneImg:hover .down {
     left: 0;
     display: inline-block;
