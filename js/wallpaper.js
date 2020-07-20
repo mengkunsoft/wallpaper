@@ -56,11 +56,11 @@ $(function () {
         }
     });
 
-    $("#toolBall").click(function(){
-        if(seting.types == 'bing' || seting.types == 'ciba'){
+    $("#toolBall").click(function() {
+        if(seting.types == 'bing' || seting.types == 'ciba') {
             return true;
         }
-        $('body').animate({scrollTop:0},300,'swing');  
+        $("html, body").animate({scrollTop:0}, "normal"); 
         return false;
     });
     
@@ -80,7 +80,7 @@ $(function () {
 
 
 // 加载壁纸容器中的壁纸
-function loadData(types, newload){
+function loadData(types, newload) {
     if(types != seting.types || newload === true)
     {
         seting.types = types;
@@ -95,9 +95,9 @@ function loadData(types, newload){
         $(".onepage-pagination").remove();
         $("body").removeClass();
         $(".jigsaw").removeAttr("style"); 
-        $("#toolBall").attr('href','javascript:void(0);');
-        $("#toolBall").attr('class','uptoTop');
-        $("#toolBall").attr('title','返回顶部');
+        $("#toolBall").attr('href', 'javascript:void(0);');
+        $("#toolBall").attr('class', 'uptoTop');
+        $("#toolBall").attr('title', '返回顶部');
         $("#toolBall").hide();
     }
     
@@ -107,16 +107,16 @@ function loadData(types, newload){
             ajaxBingWal(-1, 8);
             ajaxBingWal(7, 8);
             $("#toolBall").show();
-            $("#toolBall").attr('class','downBing');
-            $("#toolBall").attr('title','下载这张图片');
+            $("#toolBall").attr('class', 'downBing');
+            $("#toolBall").attr('title', '下载这张图片');
         break;
         
         case 'ciba':    // 加载金山词霸每日一句壁纸
             if(newload === false) return;
             ajaxCiba(1);
             $("#toolBall").show();
-            $("#toolBall").attr('class','downBing');
-            $("#toolBall").attr('title','下载这张图片');
+            $("#toolBall").attr('class', 'downBing');
+            $("#toolBall").attr('title', '下载这张图片');
         break;
         
         default:    // 加载来自360的壁纸
@@ -126,7 +126,7 @@ function loadData(types, newload){
 
 resizeHeight();
 
-// 重新调整高度
+// 重新调整高度 TODO: 完全可以纯 css 实现……
 function resizeHeight() {
     switch (seting.types)
     {
@@ -139,7 +139,7 @@ function resizeHeight() {
 }
 
 // 显示一张拼图壁纸
-function addJigsaw(img, alt){
+function addJigsaw(img, alt) {
     var newHtml;    // 新增的内容
     var imgWidth,imgHeight;
     jigsaw.count++;    // 已加载壁纸数自加
@@ -242,7 +242,7 @@ function ajaxBingWal(start, count){
 }
 
 // ajax加载金山词霸每日图片
-function ajaxCiba(data){
+function ajaxCiba(data) {
     $.ajax({
         type: "GET", 
         url: "http://open.iciba.com/dsapi/", 
@@ -264,7 +264,7 @@ function ajaxCiba(data){
 }
 
 // ajax加载360壁纸标签
-function ajax360Tags(){
+function ajax360Tags() {
     $.ajax({
         type: "GET", 
         url: seting.apiUrl, 
@@ -282,7 +282,7 @@ function ajax360Tags(){
 }
 
 // ajax加载来自360的壁纸
-function ajax360Wal(cid, start, count){
+function ajax360Wal(cid, start, count) {
     if(jigsaw.ajaxing === true) return false;
     $("#loadmore").html('努力加载中……');
     $("#loadmore").show();
@@ -309,17 +309,17 @@ function ajax360Wal(cid, start, count){
 }
 
 // 解码360api获取的tag标签
-function decode360Tag(oldTag){
+function decode360Tag(oldTag) {
     return oldTag.match(/_category_[^_]+_/g).join(" ").replace(/_category_([^_]+)_/g, "$1");
 }
 
 // 解码360图片的链接，获得指定尺寸图片
-function decode360Url(oldUrl, width, height, quality){
+function decode360Url(oldUrl, width, height, quality) {
     return oldUrl.replace("r\/__85", "m\/" + parseInt(width) + "_" + parseInt(height) + "_" + quality);
 }
 
 // 拼图图块鼠标移动显示分辨率下载
-function hoverJigsaw(obj){
+function hoverJigsaw(obj) {
     if ($(obj).find('.down').length > 0) return true;
     
     var realUrl = $(obj).find('img').attr("data-realurl");
@@ -334,7 +334,7 @@ function hoverJigsaw(obj){
 }
 
 // 同步改变浏览器标题
-function changeTitle(obj){
+function changeTitle(obj) {
     $('title').html($(obj).html()+' - 在线壁纸');
 }
 
@@ -348,4 +348,4 @@ function showImg(img) {
 
 // 我的要求并不高，保留这一句版权信息可好？
 // 保留了，你不会损失什么；而保留版权，是对作者最大的尊重。
-console.info('作者：mengkun(http://mkblog.cn)\n壁纸来源于：360壁纸库、必应首页壁纸以及金山词霸开放平台\nGithub：https://github.com/mengkunsoft/wallpaper');
+console.info('作者：mengkun(https://mkblog.cn)\n壁纸来源于：360壁纸库、必应首页壁纸以及金山词霸开放平台\nGithub：https://github.com/mengkunsoft/wallpaper');
