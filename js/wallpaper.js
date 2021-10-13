@@ -317,7 +317,7 @@ function decode360Tag(oldTag) {
 // 解码360图片的链接，获得指定尺寸图片
 function decode360Url(oldUrl, width, height, quality) {
     var newUrl = oldUrl.replace("r\/__85", "m\/" + parseInt(width) + "_" + parseInt(height) + "_" + quality);
-    newUrl = newUrl.replace(/http:\/\/browser9.qhimg.com/g, "https://p0.ssl.qhmsg.com");
+    newUrl = newUrl.replace(/http:\/\//g, "https://");
     return newUrl;
 }
 
