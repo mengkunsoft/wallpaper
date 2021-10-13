@@ -9,7 +9,7 @@ var seting = {
     apiUrl: "api/",      // api地址
     ratio: 0.618,        // 图片宽高比
     types: '360new',     // 加载壁纸的种类
-    downApi: 'http://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=' // 用于下载图片的api地址
+    downApi: 'https://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=' // 用于下载图片的api地址
 };
 
 var jigsaw = {
@@ -208,12 +208,13 @@ function ajaxBingWal(start, count){
             $("#walBox").append(newHtml);   // 全屏滚动插件css
             
             for (var i = 0; i < jsonData.images.length; i++){
-                if(jsonData.images[i].wp === true){ // BING官方不让下载的图片处理
-                    downUrl = 'http://cn.bing.com/hpwp/' + jsonData.images[i].hsh;
-                }else{
-                    downUrl = 'http://cn.bing.com' + jsonData.images[i].url;
-                }
-                newHtml += '<section data-url="' + downUrl + '" data-img="http://cn.bing.com' + jsonData.images[i].url + '"><p class="note">' + jsonData.images[i].copyright + '</p></section>';
+                // if(jsonData.images[i].wp === true){ // BING官方不让下载的图片处理
+                //     downUrl = 'https://cn.bing.com/hpwp/' + jsonData.images[i].hsh;
+                // }else{
+                //     downUrl = 'https://cn.bing.com' + jsonData.images[i].url;
+                // }
+                downUrl = 'https://cn.bing.com' + jsonData.images[i].url;
+                newHtml += '<section data-url="' + downUrl + '" data-img="https://cn.bing.com' + jsonData.images[i].url + '"><p class="note">' + jsonData.images[i].copyright + '</p></section>';
             }
             $("#walBox").append(newHtml);
             
@@ -245,7 +246,7 @@ function ajaxBingWal(start, count){
 function ajaxCiba(data) {
     $.ajax({
         type: "GET", 
-        url: "http://open.iciba.com/dsapi/", 
+        url: "https://open.iciba.com/dsapi/", 
         // data: "cid=bing&start=" + start + "&count=" + count,
         dataType : "jsonp",
         success: function(jsonData){
@@ -315,7 +316,9 @@ function decode360Tag(oldTag) {
 
 // 解码360图片的链接，获得指定尺寸图片
 function decode360Url(oldUrl, width, height, quality) {
-    return oldUrl.replace("r\/__85", "m\/" + parseInt(width) + "_" + parseInt(height) + "_" + quality);
+    var newUrl = oldUrl.replace("r\/__85", "m\/" + parseInt(width) + "_" + parseInt(height) + "_" + quality);
+    newUrl = newUrl.replace(/http:\/\/browser9.qhimg.com/g, "https://p0.ssl.qhmsg.com");
+    return newUrl;
 }
 
 // 拼图图块鼠标移动显示分辨率下载
